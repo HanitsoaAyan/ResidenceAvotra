@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #faf5ee;
+    --beige: #ede3d0;
+    --sand: #d4bb98;
+    --brown: #8b6a4a;
+    --dark: #3d2b1a;
+    --ink: #2b1e12;
+    --glass: rgba(250, 245, 238, 0.18);
+    --glass-md: rgba(250, 245, 238, 0.38);
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: var(--dark);
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 20% 30%, rgba(196,168,130,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 80% 70%, rgba(61,43,26,0.9) 0%, transparent 65%),
+                #3d2b1a;
+    z-index: -1;
+}
+
+.card {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    border-radius: 40px;
+    box-shadow: 0 2px 0 rgba(255,255,255,0.08) inset, 0 40px 100px rgba(0,0,0,0.45);
+    background-image: url("img/cuisine.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.card::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: var(--sand);
+    border-radius: 10px;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(160deg, rgba(61,43,26,0.62) 0%, rgba(61,43,26,0.35) 45%, rgba(61,43,26,0.72) 100%);
+    z-index: -1;
+}
+
+header {
+    flex-shrink: 0;
+    margin: 22px auto;
+    padding: 14px 20px;
+    border-radius: 80px;
+    background: rgba(38, 25, 12, 0.78);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139,106,74,0.3);
+    width: 90%;
+    max-width: 1300px;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.nav > div:first-child img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--beige);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.25s;
+}
+
+.nav-links a:hover {
+    color: var(--cream);
+}
+
+.sign-in a {
+    text-decoration: none;
+    color: var(--sand);
+    padding: 10px 26px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(139,106,74,0.7);
+    background: rgba(139,106,74,0.28);
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #d4bb98 0%, #8b6a4a 100%);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    background: rgba(38, 25, 12, 0.95);
+    backdrop-filter: blur(20px);
+    min-width: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--beige);
+    text-decoration: none;
+}
+
+.about-container {
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    color: var(--cream);
+    margin-bottom: 20px;
+}
+
+.about-subtitle {
+    font-size: 18px;
+    color: var(--sand);
+    font-style: italic;
+}
+
+.about-section {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--cream);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--sand);
+}
+
+.about-text p {
+    color: var(--beige);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.about-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.values-list {
+    list-style: none;
+}
+
+.values-list li {
+    margin-bottom: 25px;
+}
+
+.values-list strong {
+    display: block;
+    font-size: 20px;
+    color: var(--sand);
+    margin-bottom: 8px;
+}
+
+.values-list p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.about-stats {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 60px 0;
+    background: rgba(255,255,255,0.05);
+    border-radius: 30px;
+}
+
+.about-stats h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--cream);
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--sand);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: var(--beige);
+    font-size: 14px;
+}
+
+.about-team {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.about-team h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--cream);
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.team-card {
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+}
+
+.team-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #8B6A4A, #3d2b1a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--cream);
+    margin: 0 auto 20px;
+}
+
+.team-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--cream);
+    margin-bottom: 8px;
+}
+
+.team-role {
+    font-size: 13px;
+    color: var(--sand);
+}
+
+.about-contact {
+    background: rgba(255,255,255,0.05);
+    border-radius: 30px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-contact h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--cream);
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contact-label {
+    font-weight: bold;
+    color: var(--sand);
+}
+
+.contact-item span:last-child {
+    color: var(--beige);
+}
+
+@media (max-width: 860px) {
+    .card {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        border-radius: 28px;
+    }
+    
+    .about-container {
+        padding: 20px;
+    }
+    
+    .about-title {
+        font-size: 36px;
+    }
+    
+    .about-section {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .about-section.reverse {
+        flex-direction: column;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-title {
+        font-size: 28px;
+    }
+    
+    .about-text h2 {
+        font-size: 28px;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+}
